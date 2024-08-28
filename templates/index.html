@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Central Frete - Automação</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="card">
+        <div class="card-header text-center">
+          <img
+            src="{{ url_for('static', filename='imagens/logo.png') }}"
+            alt="Logo VELD"
+            style="width: 100px; height: auto; display: block"
+          />
+
+          <h2>Central Frete - Automação</h2>
+        </div>
+        <div class="card-body">
+          <h3>Importar Alto Giro</h3>
+          <form
+            action="/importar_alto_giro"
+            method="post"
+            enctype="multipart/form-data"
+            class="mb-4"
+          >
+            <div class="form-group">
+              <label for="atlas_file">Arquivo Atlas:</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="atlas_file"
+                id="atlas_file"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="lote_file">Arquivo Lote:</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="lote_file"
+                id="lote_file"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Importar</button>
+          </form>
+
+          <h3>Importar Baixo Giro</h3>
+          <form
+            action="/importar_baixo_giro"
+            method="post"
+            enctype="multipart/form-data"
+            class="mb-4"
+          >
+            <div class="form-group">
+              <label for="atlas_file_baixo">Arquivo Atlas:</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="atlas_file"
+                id="atlas_file_baixo"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="lote_file_baixo">Arquivo Lote:</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="lote_file"
+                id="lote_file_baixo"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Importar</button>
+          </form>
+
+          <h3>Juntar Packlists</h3>
+          <form
+            action="/juntar_packlist"
+            method="post"
+            enctype="multipart/form-data"
+            class="mb-4"
+          >
+            <div class="form-group">
+              <label for="alto_giro_file">Arquivo Alto Giro:</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="alto_giro_file"
+                id="alto_giro_file"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="baixo_giro_file">Arquivo Baixo Giro:</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="baixo_giro_file"
+                id="baixo_giro_file"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-secondary">
+              Juntar Packlists
+            </button>
+          </form>
+
+          <h3>Packlist Acessórios</h3>
+          <form
+            action="/packlist_acessorios"
+            method="post"
+            enctype="multipart/form-data"
+            class="mb-4"
+          >
+            <div class="form-group">
+              <label for="xml_file">Arquivo XML:</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="xml_file"
+                id="xml_file"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Gerar Packlist
+            </button>
+          </form>
+
+          <h3>Lançar Equipamentos</h3>
+          <form
+            action="/lancar_material_no_central"
+            method="post"
+            enctype="multipart/form-data"
+            class="mb-4"
+          >
+            <div class="form-group">
+              <label for="cidade">Cidade:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="cidade"
+                id="cidade"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="valor_nota">Valor Nota:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="valor_nota"
+                id="valor_nota"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="quantidade_cx">Quantidade de Caixas:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="quantidade_cx"
+                id="quantidade_cx"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="familia_equipamentos"
+                >Arquivo FAMILIA DE EQUIPAMENTOS:</label
+              >
+              <input
+                type="file"
+                class="form-control-file"
+                name="familia_equipamentos"
+                id="familia_equipamentos"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="upload_file">Arquivo Atlas:</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="upload_file"
+                id="upload_file"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Lançar Equipamentos
+            </button>
+          </form>
+
+          <h3>Lançar Acessórios</h3>
+          <form
+            action="/lancar_acessorios_no_central"
+            method="post"
+            enctype="multipart/form-data"
+            class="mb-4"
+          >
+            <div class="form-group">
+              <label for="cidade_acessorios">Cidade:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="cidade"
+                id="cidade_acessorios"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="valor_nota_acessorios">Valor Nota:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="valor_nota"
+                id="valor_nota_acessorios"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="quantidade_cx_acessorios"
+                >Quantidade de Caixas:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="quantidade_cx"
+                id="quantidade_cx_acessorios"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="upload_file_acessorios">Arquivo Atlas:</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="upload_file"
+                id="upload_file_acessorios"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Lançar Acessórios
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
