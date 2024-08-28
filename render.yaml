@@ -1,0 +1,7 @@
+echo "services:
+  - type: web
+    name: centra-frete
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    branch: master" > render.yaml
